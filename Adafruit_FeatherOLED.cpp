@@ -51,8 +51,6 @@ void Adafruit_FeatherOLED::renderBattery ( void )
     else
     {
       // Render the voltage in text
-      setTextSize(1);
-      setTextColor(WHITE);
       setCursor(96,0);
       print(_battery, 2);
       println("V");
@@ -69,9 +67,7 @@ void Adafruit_FeatherOLED::renderRSSI( void )
 {
   if (_rssiVisible)
   {
-    setTextSize(1);
-    setTextColor(WHITE);
-    setCursor(40,0);
+    setCursor(32,0);
     print("RSSI:");
     if (_connected)
     {
@@ -93,8 +89,6 @@ void Adafruit_FeatherOLED::renderConnected ( void )
 {
   if (_connectedVisible)
   {
-    setTextSize(1);
-    setTextColor(WHITE);
     setCursor(0,0);
     if (_connected)
     {
@@ -117,6 +111,8 @@ void Adafruit_FeatherOLED::init ( void )
   // Generate the high voltage from the 3.3v line internally and
   // initialize with the I2C addr 0x3C (for the 128x32)
   begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  setTextSize(1);
+  setTextColor(WHITE);
   clearDisplay();
 }
 
@@ -125,25 +121,11 @@ void Adafruit_FeatherOLED::init ( void )
     @brief  Updates the OLED display
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::refresh ( void )
+void Adafruit_FeatherOLED::refreshIcons ( void )
 {
   clearDisplay();
   renderBattery();
   renderRSSI();
   renderConnected();
   display();
-}
-
-/******************************************************************************/
-/*!
-    @brief  Displays the specific messages on the OLED display
-*/
-/******************************************************************************/
-void Adafruit_FeatherOLED::writeMessage ( char * msg )
-{
-  // text display tests
-  setTextSize(1);
-  setTextColor(WHITE);
-  setCursor(0,0);
-  println(msg);
 }

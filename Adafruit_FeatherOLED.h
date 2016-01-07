@@ -83,10 +83,9 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     void setRSSI             ( int rssi )     { _rssi = rssi; }
     void setRSSIVisible      ( bool enable )  { _rssiVisible = enable; }
 
-    void init         ( void );
-    void refresh      ( void );
-    void clear        ( void );
-    void writeMessage ( char * msg );
+    void init          ( void );
+    void refreshIcons  ( void );
+    void clearMessages ( void );
 };
 
 #endif /* _Adafruit_FeatherOLED_H_ */
