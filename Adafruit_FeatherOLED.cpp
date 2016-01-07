@@ -67,7 +67,7 @@ void Adafruit_FeatherOLED::renderRSSI( void )
 {
   if (_rssiVisible)
   {
-    setCursor(32,0);
+    setCursor(0,0);
     print("RSSI:");
     if (_connected)
     {
@@ -89,7 +89,7 @@ void Adafruit_FeatherOLED::renderConnected ( void )
 {
   if (_connectedVisible)
   {
-    setCursor(0,0);
+    setCursor(100,24);
     if (_connected)
     {
       println("CONN");
@@ -97,6 +97,29 @@ void Adafruit_FeatherOLED::renderConnected ( void )
     else
     {
       println("----");
+    }
+  }
+}
+
+/******************************************************************************/
+/*!
+    @brief  Renders the connection status icon
+*/
+/******************************************************************************/
+void Adafruit_FeatherOLED::renderIPAddress ( void )
+{
+  if (_ipAddressVisible)
+  {
+    if (_connected)
+    {
+      setCursor(0,24);
+      print((_ipAddress >> 24) & 0xFF, DEC);
+      print(".");
+      print((_ipAddress >> 16) & 0xFF, DEC);
+      print(".");
+      print((_ipAddress >> 8) & 0xFF, DEC);
+      print(".");
+      print(_ipAddress & 0xFF, DEC);
     }
   }
 }
@@ -127,5 +150,6 @@ void Adafruit_FeatherOLED::refreshIcons ( void )
   renderBattery();
   renderRSSI();
   renderConnected();
+  renderIPAddress();
   display();
 }

@@ -57,10 +57,13 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     bool    _connectedVisible;
     int     _rssi;
     bool    _rssiVisible;
+    int32_t _ipAddress;
+    bool    _ipAddressVisible;
 
     void renderBattery    ( void );
     void renderRSSI       ( void );
     void renderConnected  ( void );
+    void renderIPAddress  ( void );
 
   public:
     // Constructor
@@ -73,15 +76,19 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
       _connectedVisible   = true;
       _rssi               = -99;
       _rssiVisible        = true;
+      _ipAddress          = 0;
+      _ipAddressVisible   = true;
     }
 
-    void setBattery          ( float vbat )   { _battery = vbat; }
-    void setBatteryVisible   ( bool enable )  { _batteryVisible = enable; }
-    void setBatteryIcon      ( bool enable )  { _batteryIcon = enable; }
-    void setConnected        ( bool conn )    { _connected = conn; }
-    void setConnectedVisible ( bool enable )  { _connectedVisible = enable; }
-    void setRSSI             ( int rssi )     { _rssi = rssi; }
-    void setRSSIVisible      ( bool enable )  { _rssiVisible = enable; }
+    void setBattery          ( float vbat )     { _battery = vbat; }
+    void setBatteryVisible   ( bool enable )    { _batteryVisible = enable; }
+    void setBatteryIcon      ( bool enable )    { _batteryIcon = enable; }
+    void setConnected        ( bool conn )      { _connected = conn; }
+    void setConnectedVisible ( bool enable )    { _connectedVisible = enable; }
+    void setRSSI             ( int rssi )       { _rssi = rssi; }
+    void setRSSIVisible      ( bool enable )    { _rssiVisible = enable; }
+    void setIPAddress        ( uint32_t addr )  { _ipAddress = addr; }
+    void setIPAddressVisible ( bool enable )    { _ipAddressVisible = enable; }
 
     void init          ( void );
     void refreshIcons  ( void );
