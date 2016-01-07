@@ -44,7 +44,19 @@ void Adafruit_FeatherOLED::renderBattery ( void )
 {
   if (_batteryVisible)
   {
-
+    if (_batteryIcon)
+    {
+      // Display the battery icon
+    }
+    else
+    {
+      // Render the voltage in text
+      setTextSize(1);
+      setTextColor(WHITE);
+      setCursor(96,0);
+      print(_battery, 2);
+      println("V");
+    }
   }
 }
 
@@ -57,7 +69,18 @@ void Adafruit_FeatherOLED::renderRSSI( void )
 {
   if (_rssiVisible)
   {
-
+    setTextSize(1);
+    setTextColor(WHITE);
+    setCursor(40,0);
+    print("RSSI:");
+    if (_connected)
+    {
+      print(_rssi);
+    }
+    else
+    {
+      print("---");
+    }
   }
 }
 
@@ -70,7 +93,17 @@ void Adafruit_FeatherOLED::renderConnected ( void )
 {
   if (_connectedVisible)
   {
-
+    setTextSize(1);
+    setTextColor(WHITE);
+    setCursor(0,0);
+    if (_connected)
+    {
+      println("CONN");
+    }
+    else
+    {
+      println("----");
+    }
   }
 }
 
@@ -94,20 +127,11 @@ void Adafruit_FeatherOLED::init ( void )
 /******************************************************************************/
 void Adafruit_FeatherOLED::refresh ( void )
 {
+  clearDisplay();
   renderBattery();
   renderRSSI();
   renderConnected();
   display();
-}
-
-/******************************************************************************/
-/*!
-    @brief  Clears the OLED display
-*/
-/******************************************************************************/
-void Adafruit_FeatherOLED::clear ( void )
-{
-  clearDisplay();
 }
 
 /******************************************************************************/

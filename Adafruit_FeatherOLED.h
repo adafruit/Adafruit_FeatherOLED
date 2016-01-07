@@ -51,10 +51,11 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     };
 
     float   _battery;
+    bool    _batteryIcon;
     bool    _batteryVisible;
     bool    _connected;
     bool    _connectedVisible;
-    float   _rssi;
+    int     _rssi;
     bool    _rssiVisible;
 
     void renderBattery    ( void );
@@ -65,19 +66,21 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     // Constructor
     Adafruit_FeatherOLED ( int reset = -1 ) : Adafruit_SSD1306(reset)
     {
-      _battery            = 0.0F;;
+      _battery            = 0.0F;
+      _batteryIcon        = false;  // true = icon, false = volts
       _batteryVisible     = true;
       _connected          = false;
       _connectedVisible   = true;
-      _rssi               = 0.0f;
+      _rssi               = -99;
       _rssiVisible        = true;
     }
 
     void setBattery          ( float vbat )   { _battery = vbat; }
     void setBatteryVisible   ( bool enable )  { _batteryVisible = enable; }
+    void setBatteryIcon      ( bool enable )  { _batteryIcon = enable; }
     void setConnected        ( bool conn )    { _connected = conn; }
     void setConnectedVisible ( bool enable )  { _connectedVisible = enable; }
-    void setRSSI             ( float rssi )   { _rssi = rssi; }
+    void setRSSI             ( int rssi )     { _rssi = rssi; }
     void setRSSIVisible      ( bool enable )  { _rssiVisible = enable; }
 
     void init         ( void );

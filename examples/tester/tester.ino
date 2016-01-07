@@ -8,7 +8,6 @@ Adafruit_FeatherOLED oled = Adafruit_FeatherOLED();
 void setup()
 {
   oled.init();
-  oled.writeMessage("192.168.0.1");
   oled.refresh();
 }
 
