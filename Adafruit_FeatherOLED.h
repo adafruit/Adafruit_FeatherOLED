@@ -44,12 +44,6 @@
 class Adafruit_FeatherOLED : public Adafruit_SSD1306
 {
   protected:
-    enum
-    {
-      FEATHEROLED_BATTERY_VOLTS,
-      FEATHEROLED_BATTERY_ICON
-    };
-
     float   _battery;
     bool    _batteryIcon;
     bool    _batteryVisible;
@@ -66,11 +60,17 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     void renderIPAddress  ( void );
 
   public:
+    enum
+    {
+      FOLED_BATTERYICON_NONE      = 0,       // Displays volts
+      FOLED_BATTERYICON_THREEBAR  = 1
+    };
+
     // Constructor
     Adafruit_FeatherOLED ( int reset = -1 ) : Adafruit_SSD1306(reset)
     {
       _battery            = 0.0F;
-      _batteryIcon        = false;  // true = icon, false = volts
+      _batteryIcon        = true;
       _batteryVisible     = true;
       _connected          = false;
       _connectedVisible   = true;
@@ -92,7 +92,6 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
 
     void init          ( void );
     void refreshIcons  ( void );
-    void clearMessages ( void );
 };
 
 #endif /* _Adafruit_FeatherOLED_H_ */
