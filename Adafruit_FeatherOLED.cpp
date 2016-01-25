@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*!
-    @file     Adafruit_FeatherOLD.cpp
+    @file     Adafruit_FeatherOLED.cpp
     @author   ktown
 
     @section LICENSE
@@ -149,72 +149,6 @@ void Adafruit_FeatherOLED::renderBattery ( void )
 
 /******************************************************************************/
 /*!
-    @brief  Renders the RSSI icon
-*/
-/******************************************************************************/
-void Adafruit_FeatherOLED::renderRSSI( void )
-{
-  if (_rssiVisible)
-  {
-    setCursor(0,0);
-    print("RSSI:");
-    if (_connected)
-    {
-      print(_rssi);
-    }
-    else
-    {
-      print("---");
-    }
-  }
-}
-
-/******************************************************************************/
-/*!
-    @brief  Renders the connection status icon
-*/
-/******************************************************************************/
-void Adafruit_FeatherOLED::renderConnected ( void )
-{
-  if (_connectedVisible)
-  {
-    setCursor(100,24);
-    if (_connected)
-    {
-      println("CONN");
-    }
-    else
-    {
-      println("----");
-    }
-  }
-}
-
-/******************************************************************************/
-/*!
-    @brief  Renders the connection status icon
-*/
-/******************************************************************************/
-void Adafruit_FeatherOLED::renderIPAddress ( void )
-{
-  if (_ipAddressVisible)
-  {
-    if (_connected)
-    {
-      setCursor(0,24);
-      print((_ipAddress >> 24) & 0xFF, DEC);
-      print(".");
-      print((_ipAddress >> 16) & 0xFF, DEC);
-      print(".");
-      print((_ipAddress >> 8) & 0xFF, DEC);
-      print(".");
-      print(_ipAddress & 0xFF, DEC);
-    }
-  }
-}
-
-/******************************************************************************/
-/*!
     @brief  Initialises the display (always call this first!)
 */
 /******************************************************************************/
@@ -230,15 +164,13 @@ void Adafruit_FeatherOLED::init ( void )
 
 /******************************************************************************/
 /*!
-    @brief  Updates the OLED display
+    @brief  Clears the message area (the middle 128x16 pixels) and sets the
+            cursor to 0, 8
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::refreshIcons ( void )
+void Adafruit_FeatherOLED::clearMsgArea ( void )
 {
-  clearDisplay();
-  renderBattery();
-  renderRSSI();
-  renderConnected();
-  renderIPAddress();
+  fillRect(0, 8, 128, 16, BLACK);
+  setCursor(0, 8);
   display();
 }
