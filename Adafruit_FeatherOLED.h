@@ -48,8 +48,6 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     bool    _batteryIcon;
     bool    _batteryVisible;
 
-    void renderBattery    ( void );
-
   public:
     enum
     {
@@ -71,6 +69,7 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
 
     void init          ( void );
     void clearMsgArea  ( void );
+    void renderBattery    ( void );
 };
 
 #endif /* _Adafruit_FeatherOLED_H_ */
