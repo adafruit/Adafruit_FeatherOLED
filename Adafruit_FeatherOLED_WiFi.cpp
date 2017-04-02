@@ -115,13 +115,13 @@ void Adafruit_FeatherOLED_WiFi::renderIPAddress ( void )
     if (_connected)
     {
       setCursor(0,24);
-      print((_ipAddress >> 24) & 0xFF, DEC);
-      print(".");
-      print((_ipAddress >> 16) & 0xFF, DEC);
+      print(_ipAddress & 0xFF, DEC);
       print(".");
       print((_ipAddress >> 8) & 0xFF, DEC);
       print(".");
-      print(_ipAddress & 0xFF, DEC);
+      print((_ipAddress >> 16) & 0xFF, DEC);
+      print(".");
+      print((_ipAddress >> 24) & 0xFF, DEC);
     }
   }
 }
