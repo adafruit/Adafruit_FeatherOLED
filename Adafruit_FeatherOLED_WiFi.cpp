@@ -37,6 +37,30 @@
 
 /******************************************************************************/
 /*!
+    @brief  Converts RSSI from dBm to quality percentage
+*/
+/******************************************************************************/
+int Adafruit_FeatherOLED_WiFi::rssiToQualityPercentage( void )
+{
+  int quality;
+  if(_rssi <= -100)
+  {
+    quality = 0;
+  }
+  else if(_rssi >= -50)
+  {
+    quality = 100;
+  }
+  else
+  {
+    quality = 2 * (_rssi + 100);
+  } 
+
+  return quality;
+}
+
+/******************************************************************************/
+/*!
     @brief  Renders the RSSI icon
 */
 /******************************************************************************/
@@ -45,26 +69,21 @@ void Adafruit_FeatherOLED_WiFi::renderRSSI( void )
   if (_rssiVisible)
   {
     setCursor(0,0);
-    print("RSSI:");
+
     if (_connected)
     {
+      renderRSSIIcon();
+
       if(_rssiAsPercentage)
       {
-        int quality;
-        if(_rssi <= -100)
+        int quality = rssiToQualityPercentage();
+        if(quality == 0)
         {
-          quality = 0;
           print("---");
-        }
-        else if(_rssi >= -50)
-        {
-          quality = 100;
-          print("100%");
         }
         else
         {
-          quality = 2 * (_rssi + 100);
-          char buf[4];
+          char buf[5];
           itoa(quality, buf, 10);
           strcat(buf, "%");
           print(buf);
@@ -73,12 +92,79 @@ void Adafruit_FeatherOLED_WiFi::renderRSSI( void )
       else
       {
         print(_rssi);
+        print(" dBm");
       }
     }
     else
     {
+      print("RSSI:");
       print("---");
     }
+  }
+}
+
+/******************************************************************************/
+/*!
+    @brief  Renders the WiFi icon
+*/
+/******************************************************************************/
+void Adafruit_FeatherOLED_WiFi::renderRSSIIcon ( void )
+{
+  #define RSSITEXT_STARTX      14
+  #define RSSITEXT_STARTY      0
+  #define RSSIICON_STARTX      0
+  #define RSSIICON_STARTY      4
+  #define RSSIICON_STARTHEIGHT 3
+  #define RSSIICON_BARWIDTH    2
+
+  if(_rssiIcon)
+  {
+    int quality = rssiToQualityPercentage();
+    if(quality == 0)
+    {
+      print("---");
+    }
+    else
+    {
+      fillRect(RSSIICON_STARTX, 
+               RSSIICON_STARTY,
+               RSSIICON_BARWIDTH,
+               RSSIICON_STARTHEIGHT,
+               WHITE);
+    }
+
+    if(quality >= 45)
+    {
+      fillRect(RSSIICON_STARTX + 3, 
+               RSSIICON_STARTY - 1,
+               RSSIICON_BARWIDTH,
+               RSSIICON_STARTHEIGHT + 1,
+               WHITE);      
+    }
+
+    if(quality >= 70)
+    {
+      fillRect(RSSIICON_STARTX + 6, 
+               RSSIICON_STARTY - 2,
+               RSSIICON_BARWIDTH,
+               RSSIICON_STARTHEIGHT + 2,
+               WHITE);      
+    }
+
+    if(quality >= 90)
+    {
+      fillRect(RSSIICON_STARTX + 9, 
+               RSSIICON_STARTY - 4,
+               RSSIICON_BARWIDTH,
+               RSSIICON_STARTHEIGHT + 4,
+               WHITE);
+    }
+
+    setCursor(RSSITEXT_STARTX, RSSITEXT_STARTY);
+  }
+  else
+  {
+    print("RSSI:");
   }
 }
 
