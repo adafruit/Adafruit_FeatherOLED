@@ -48,7 +48,32 @@ void Adafruit_FeatherOLED_WiFi::renderRSSI( void )
     print("RSSI:");
     if (_connected)
     {
-      print(_rssi);
+      if(_rssiAsPercentage)
+      {
+        int quality;
+        if(_rssi <= -100)
+        {
+          quality = 0;
+          print("---");
+        }
+        else if(_rssi >= -50)
+        {
+          quality = 100;
+          print("100%");
+        }
+        else
+        {
+          quality = 2 * (_rssi + 100);
+          char buf[4];
+          itoa(quality, buf, 10);
+          strcat(buf, "%");
+          print(buf);
+        }
+      }
+      else
+      {
+        print(_rssi);
+      }
     }
     else
     {
@@ -90,13 +115,13 @@ void Adafruit_FeatherOLED_WiFi::renderIPAddress ( void )
     if (_connected)
     {
       setCursor(0,24);
-      print((_ipAddress >> 24) & 0xFF, DEC);
-      print(".");
-      print((_ipAddress >> 16) & 0xFF, DEC);
+      print(_ipAddress & 0xFF, DEC);
       print(".");
       print((_ipAddress >> 8) & 0xFF, DEC);
       print(".");
-      print(_ipAddress & 0xFF, DEC);
+      print((_ipAddress >> 16) & 0xFF, DEC);
+      print(".");
+      print((_ipAddress >> 24) & 0xFF, DEC);
     }
   }
 }
