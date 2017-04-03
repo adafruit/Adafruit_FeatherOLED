@@ -126,6 +126,7 @@ void Adafruit_FeatherOLED_WiFi::renderRSSIIcon ( void )
     }
     else
     {
+      // Render the first bar if there is any signal at all
       fillRect(RSSIICON_STARTX, 
                RSSIICON_STARTY,
                RSSIICON_BARWIDTH,
@@ -133,6 +134,7 @@ void Adafruit_FeatherOLED_WiFi::renderRSSIIcon ( void )
                WHITE);
     }
 
+    // Render the second bar
     if(quality >= 45)
     {
       fillRect(RSSIICON_STARTX + 3, 
@@ -142,6 +144,7 @@ void Adafruit_FeatherOLED_WiFi::renderRSSIIcon ( void )
                WHITE);      
     }
 
+    // Render the third bar
     if(quality >= 70)
     {
       fillRect(RSSIICON_STARTX + 6, 
@@ -151,6 +154,7 @@ void Adafruit_FeatherOLED_WiFi::renderRSSIIcon ( void )
                WHITE);      
     }
 
+    // Render the fourth bar. The most coveted of all bars.
     if(quality >= 90)
     {
       fillRect(RSSIICON_STARTX + 9, 
