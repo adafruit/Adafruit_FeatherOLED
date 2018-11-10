@@ -65,7 +65,7 @@ class Adafruit_FeatherOLED_WiFi : public Adafruit_FeatherOLED
   public:
 
     // Constructor
-    Adafruit_FeatherOLED_WiFi ( int reset = -1 ) : Adafruit_FeatherOLED(reset)
+    Adafruit_FeatherOLED_WiFi (TwoWire *wire=&Wire, int reset = -1 ) : Adafruit_FeatherOLED(wire, reset)
     {
       _connected          = false;
       _connectedVisible   = true;

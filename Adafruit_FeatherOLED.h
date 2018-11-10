@@ -56,7 +56,7 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     };
 
     // Constructor
-    Adafruit_FeatherOLED ( int reset = -1 ) : Adafruit_SSD1306(reset)
+    Adafruit_FeatherOLED (TwoWire *wire=&Wire, int reset = -1 ) : Adafruit_SSD1306(128, 32, wire, reset)
     {
       _battery            = 0.0F;
       _batteryIcon        = true;
