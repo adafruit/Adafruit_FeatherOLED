@@ -200,6 +200,8 @@ void Adafruit_FeatherOLED_WiFi::renderConnected ( void )
 /******************************************************************************/
 void Adafruit_FeatherOLED_WiFi::renderIPAddress ( void )
 {
+  if (_ipAddressVisible)
+  {
     if (_connected)
     {
       setCursor(0,24);
@@ -211,6 +213,7 @@ void Adafruit_FeatherOLED_WiFi::renderIPAddress ( void )
       print(".");
       print((_ipAddress >> 24) & 0xFF, DEC);
     }
+  }
 }
 
 /******************************************************************************/
