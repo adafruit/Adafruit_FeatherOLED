@@ -25,14 +25,14 @@ class Adafruit_FeatherOLED_WiFi : public Adafruit_FeatherOLED
     int rssiToQualityPercentage ( void );
 
   protected:
-    bool    _connected;
-    bool    _connectedVisible;
-    int     _rssi;
-    bool    _rssiIcon;
-    bool    _rssiAsPercentage;
-    bool    _rssiVisible;
-    int32_t _ipAddress;
-    bool    _ipAddressVisible;
+    bool    _connected;           /*!<  Are we connected? *///
+    bool    _connectedVisible;    /*!<  Show connectivity *///
+    int     _rssi;                /*!<  RSSI Value *///
+    bool    _rssiIcon;            /*!<  RSSI as Icon *///
+    bool    _rssiAsPercentage;    /*!<  RSSI as Percentage *///
+    bool    _rssiVisible;         /*!<  Display RSSI *///
+    int32_t _ipAddress;           /*!<  IP Address *///
+    bool    _ipAddressVisible;    /*!<  IP Address Visible *///
 
     void renderRSSI       ( void );
     void renderRSSIIcon   ( void );
@@ -41,7 +41,13 @@ class Adafruit_FeatherOLED_WiFi : public Adafruit_FeatherOLED
 
   public:
 
-    // Constructor
+    /**************************************************************************/
+    /*!
+     @brief  Class Constructor
+     @param  wire The Wire object
+     @param  reset Perform a Reset on initialization
+     */
+    /**************************************************************************/
     Adafruit_FeatherOLED_WiFi (TwoWire *wire=&Wire, int reset = -1 ) : Adafruit_FeatherOLED(wire, reset)
     {
       _connected          = false;
@@ -54,14 +60,75 @@ class Adafruit_FeatherOLED_WiFi : public Adafruit_FeatherOLED
       _ipAddressVisible   = true;
     }
 
+    /**************************************************************************/
+    /*!
+     @brief  Sets if we're connected
+     @param  conn Are we connected?
+     */
+    /**************************************************************************/
     void setConnected        ( bool conn )      { _connected = conn; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets if the connection status is visible
+     @param  enable Enable visibility?
+     */
+    /**************************************************************************/
     void setConnectedVisible ( bool enable )    { _connectedVisible = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets the RSSI value
+     @param  rssi The value
+     */
+    /**************************************************************************/
     void setRSSI             ( int rssi )       { _rssi = rssi; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets if the RSSI is an Icon
+     @param  enable Enable icon?
+     */
+    /**************************************************************************/
     void setRSSIIcon         ( bool enable )    { _rssiIcon = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets if the RSSI is a percentage or value
+     @param  enable Is it a percentage?
+     */
+    /**************************************************************************/
     void setRSSIAsPercentage ( bool enable )    { _rssiAsPercentage = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets if the RSSI info is visible
+     @param  enable Display the RSSI info?
+     */
+    /**************************************************************************/
     void setRSSIVisible      ( bool enable )    { _rssiVisible = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets the IP Address
+     @param  addr The IP Address
+     */
+    /**************************************************************************/
     void setIPAddress        ( uint32_t addr )  { _ipAddress = addr; }
+  
+    /**************************************************************************/
+    /*!
+     @brief  Sets the IP Address Visiblity
+     @param  enable Display the IP Address?
+     */
+    /**************************************************************************/
     void setIPAddressVisible ( bool enable )    { _ipAddressVisible = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Refresh all icons based on current settings
+     */
+    /**************************************************************************/
     void refreshIcons  ( void );
 };
 

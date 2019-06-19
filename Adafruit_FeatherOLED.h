@@ -21,9 +21,9 @@
 class Adafruit_FeatherOLED : public Adafruit_SSD1306
 {
   protected:
-    float   _battery;
-    bool    _batteryIcon;
-    bool    _batteryVisible;
+    float   _battery;           /*!<  Battery Value *///
+    bool    _batteryIcon;       /*!<  Display Battery Icon *///
+    bool    _batteryVisible;    /*!<  Battery Info Visible *///
 
   public:
     /**************************************************************************/
