@@ -2,7 +2,7 @@
 /*!
     @file     Adafruit_FeatherOLED_WiFi.h
     @author   ktown
-
+*/
 /**************************************************************************/
 
 #ifndef _Adafruit_FeatherOLED_WiFi_H_
