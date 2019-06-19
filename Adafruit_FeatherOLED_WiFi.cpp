@@ -81,13 +81,6 @@ void Adafruit_FeatherOLED_WiFi::renderRSSI( void )
 /******************************************************************************/
 void Adafruit_FeatherOLED_WiFi::renderRSSIIcon ( void )
 {
-  #define RSSITEXT_STARTX      14
-  #define RSSITEXT_STARTY      0
-  #define RSSIICON_STARTX      0
-  #define RSSIICON_STARTY      4
-  #define RSSIICON_STARTHEIGHT 3
-  #define RSSIICON_BARWIDTH    2
-
   if(_rssiIcon)
   {
     int quality = rssiToQualityPercentage();

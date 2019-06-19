@@ -42,13 +42,6 @@
 /******************************************************************************/
 void Adafruit_FeatherOLED::renderBattery ( void )
 {
-  #define BATTTEXT_STARTX     77  ///< Battery Text X Position
-  #define BATTTEXT_STARTY     0   ///< Battery Text Y Position
-  #define BATTICON_STARTX     110 ///< Battery Icon X Position
-  #define BATTICON_STARTY     0   ///< Battery Icon X Position
-  #define BATTICON_WIDTH      18  ///< Battery Icon Width
-  #define BATTICON_BARWIDTH3  ((BATTICON_WIDTH - 6) / 3) ///< Battery Icon Bar Width
-
   if (_batteryVisible)
   {
     // Render the voltage in text
