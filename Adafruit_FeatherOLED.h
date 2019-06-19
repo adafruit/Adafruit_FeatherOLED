@@ -26,13 +26,24 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     bool    _batteryVisible;
 
   public:
-    enum
+    /**************************************************************************/
+    /*!
+     @enum BatteryIconType The Battery Icon Types
+     */
+    /**************************************************************************/
+    enum BatteryIconType
     {
-      FOLED_BATTERYICON_NONE      = 0,       // Displays volts
-      FOLED_BATTERYICON_THREEBAR  = 1
+      FOLED_BATTERYICON_NONE      = 0,         /*!<  Displays volts *///
+      FOLED_BATTERYICON_THREEBAR  = 1          /*!<  Displays a 3-bar icon *///
     };
 
-    // Constructor
+    /**************************************************************************/
+    /*!
+     @brief  Class Constructor
+     @param  wire The Wire object
+     @param  reset Perform a Reset on initialization
+     */
+    /**************************************************************************/
     Adafruit_FeatherOLED (TwoWire *wire=&Wire, int reset = -1 ) : Adafruit_SSD1306(128, 32, wire, reset)
     {
       _battery            = 0.0F;
@@ -40,8 +51,28 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
       _batteryVisible     = true;
     }
 
+    /**************************************************************************/
+    /*!
+     @brief  Sets the Battery Value
+     @param  vbat The Battery Voltage
+     */
+    /**************************************************************************/
     void setBattery          ( float vbat )     { _battery = vbat; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets the Battery Value Visibility
+     @param  enable Is visibility enabled?
+     */
+    /**************************************************************************/
     void setBatteryVisible   ( bool enable )    { _batteryVisible = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets the Battery Icon Visibility
+     @param  enable Is visibility enabled?
+     */
+    /**************************************************************************/
     void setBatteryIcon      ( bool enable )    { _batteryIcon = enable; }
 
     void init          ( void );
