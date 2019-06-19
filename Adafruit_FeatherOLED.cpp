@@ -168,9 +168,11 @@ void Adafruit_FeatherOLED::init ( void )
             cursor to 0, 8
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::clearMsgArea ( void )
+void Adafruit_FeatherOLED::clearMsgArea ( bool update )
 {
   fillRect(0, 8, 128, 16, BLACK);
   setCursor(0, 8);
-  display();
+  if (update) {
+    display();
+  }
 }

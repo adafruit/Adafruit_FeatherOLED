@@ -68,7 +68,7 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
     void setBatteryIcon      ( bool enable )    { _batteryIcon = enable; }
 
     void init          ( void );
-    void clearMsgArea  ( void );
+    void clearMsgArea  ( bool update = true );
     void renderBattery    ( void );
 };
 
