@@ -2,35 +2,6 @@
 /*!
     @file     Adafruit_FeatherOLED.h
     @author   ktown
-
-    @section LICENSE
-
-    Software License Agreement (BSD License)
-
-    Copyright (c) 2016, Adafruit Industries (adafruit.com)
-    All rights reserved.
-
-    Redistribution and use in source and binary forms, with or without
-    modification, are permitted provided that the following conditions are met:
-    1. Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holders nor the
-    names of its contributors may be used to endorse or promote products
-    derived from this software without specific prior written permission.
-
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ''AS IS'' AND ANY
-    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY
-    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 /**************************************************************************/
 
@@ -41,21 +12,38 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+/**************************************************************************/
+/*!
+ @brief  Class that extends the SSD1306 to allow easy usage such as displaying
+ the battery
+ */
+/**************************************************************************/
 class Adafruit_FeatherOLED : public Adafruit_SSD1306
 {
   protected:
-    float   _battery;
-    bool    _batteryIcon;
-    bool    _batteryVisible;
+    float   _battery;           /*!<  Battery Value *///
+    bool    _batteryIcon;       /*!<  Display Battery Icon *///
+    bool    _batteryVisible;    /*!<  Battery Info Visible *///
 
   public:
-    enum
+    /**************************************************************************/
+    /*!
+     @enum BatteryIconType The Battery Icon Types
+     */
+    /**************************************************************************/
+    enum BatteryIconType
     {
-      FOLED_BATTERYICON_NONE      = 0,       // Displays volts
-      FOLED_BATTERYICON_THREEBAR  = 1
+      FOLED_BATTERYICON_NONE      = 0,         /*!<  Displays volts *///
+      FOLED_BATTERYICON_THREEBAR  = 1          /*!<  Displays a 3-bar icon *///
     };
 
-    // Constructor
+    /**************************************************************************/
+    /*!
+     @brief  Class Constructor
+     @param  wire The Wire object
+     @param  reset Perform a Reset on initialization
+     */
+    /**************************************************************************/
     Adafruit_FeatherOLED (TwoWire *wire=&Wire, int reset = -1 ) : Adafruit_SSD1306(128, 32, wire, reset)
     {
       _battery            = 0.0F;
@@ -63,13 +51,40 @@ class Adafruit_FeatherOLED : public Adafruit_SSD1306
       _batteryVisible     = true;
     }
 
+    /**************************************************************************/
+    /*!
+     @brief  Sets the Battery Value
+     @param  vbat The Battery Voltage
+     */
+    /**************************************************************************/
     void setBattery          ( float vbat )     { _battery = vbat; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets the Battery Value Visibility
+     @param  enable Is visibility enabled?
+     */
+    /**************************************************************************/
     void setBatteryVisible   ( bool enable )    { _batteryVisible = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets the Battery Icon Visibility
+     @param  enable Is visibility enabled?
+     */
+    /**************************************************************************/
     void setBatteryIcon      ( bool enable )    { _batteryIcon = enable; }
 
     void init          ( void );
     void clearMsgArea  ( bool update = true );
     void renderBattery    ( void );
 };
+
+#define BATTTEXT_STARTX     77  ///< Battery Text X Position
+#define BATTTEXT_STARTY     0   ///< Battery Text Y Position
+#define BATTICON_STARTX     110 ///< Battery Icon X Position
+#define BATTICON_STARTY     0   ///< Battery Icon X Position
+#define BATTICON_WIDTH      18  ///< Battery Icon Width
+#define BATTICON_BARWIDTH3  ((BATTICON_WIDTH - 6) / 3) ///< Battery Icon Bar Width
 
 #endif /* _Adafruit_FeatherOLED_H_ */

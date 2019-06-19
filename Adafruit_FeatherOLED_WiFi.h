@@ -2,35 +2,6 @@
 /*!
     @file     Adafruit_FeatherOLED_WiFi.h
     @author   ktown
-
-    @section LICENSE
-
-    Software License Agreement (BSD License)
-
-    Copyright (c) 2016, Adafruit Industries (adafruit.com)
-    All rights reserved.
-
-    Redistribution and use in source and binary forms, with or without
-    modification, are permitted provided that the following conditions are met:
-    1. Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
-    3. Neither the name of the copyright holders nor the
-    names of its contributors may be used to endorse or promote products
-    derived from this software without specific prior written permission.
-
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ''AS IS'' AND ANY
-    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY
-    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 /**************************************************************************/
 
@@ -42,20 +13,26 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_FeatherOLED.h>
 
+/**************************************************************************/
+/*!
+ @brief  Class that extends Adafruit_FeatherOLED to help with some WiFi related
+ helper functions
+ */
+/**************************************************************************/
 class Adafruit_FeatherOLED_WiFi : public Adafruit_FeatherOLED
 {
   private: 
     int rssiToQualityPercentage ( void );
 
   protected:
-    bool    _connected;
-    bool    _connectedVisible;
-    int     _rssi;
-    bool    _rssiIcon;
-    bool    _rssiAsPercentage;
-    bool    _rssiVisible;
-    int32_t _ipAddress;
-    bool    _ipAddressVisible;
+    bool    _connected;           /*!<  Are we connected? *///
+    bool    _connectedVisible;    /*!<  Show connectivity *///
+    int     _rssi;                /*!<  RSSI Value *///
+    bool    _rssiIcon;            /*!<  RSSI as Icon *///
+    bool    _rssiAsPercentage;    /*!<  RSSI as Percentage *///
+    bool    _rssiVisible;         /*!<  Display RSSI *///
+    int32_t _ipAddress;           /*!<  IP Address *///
+    bool    _ipAddressVisible;    /*!<  IP Address Visible *///
 
     void renderRSSI       ( void );
     void renderRSSIIcon   ( void );
@@ -64,7 +41,13 @@ class Adafruit_FeatherOLED_WiFi : public Adafruit_FeatherOLED
 
   public:
 
-    // Constructor
+    /**************************************************************************/
+    /*!
+     @brief  Class Constructor
+     @param  wire The Wire object
+     @param  reset Perform a Reset on initialization
+     */
+    /**************************************************************************/
     Adafruit_FeatherOLED_WiFi (TwoWire *wire=&Wire, int reset = -1 ) : Adafruit_FeatherOLED(wire, reset)
     {
       _connected          = false;
@@ -77,15 +60,83 @@ class Adafruit_FeatherOLED_WiFi : public Adafruit_FeatherOLED
       _ipAddressVisible   = true;
     }
 
+    /**************************************************************************/
+    /*!
+     @brief  Sets if we're connected
+     @param  conn Are we connected?
+     */
+    /**************************************************************************/
     void setConnected        ( bool conn )      { _connected = conn; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets if the connection status is visible
+     @param  enable Enable visibility?
+     */
+    /**************************************************************************/
     void setConnectedVisible ( bool enable )    { _connectedVisible = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets the RSSI value
+     @param  rssi The value
+     */
+    /**************************************************************************/
     void setRSSI             ( int rssi )       { _rssi = rssi; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets if the RSSI is an Icon
+     @param  enable Enable icon?
+     */
+    /**************************************************************************/
     void setRSSIIcon         ( bool enable )    { _rssiIcon = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets if the RSSI is a percentage or value
+     @param  enable Is it a percentage?
+     */
+    /**************************************************************************/
     void setRSSIAsPercentage ( bool enable )    { _rssiAsPercentage = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets if the RSSI info is visible
+     @param  enable Display the RSSI info?
+     */
+    /**************************************************************************/
     void setRSSIVisible      ( bool enable )    { _rssiVisible = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Sets the IP Address
+     @param  addr The IP Address
+     */
+    /**************************************************************************/
     void setIPAddress        ( uint32_t addr )  { _ipAddress = addr; }
+  
+    /**************************************************************************/
+    /*!
+     @brief  Sets the IP Address Visiblity
+     @param  enable Display the IP Address?
+     */
+    /**************************************************************************/
     void setIPAddressVisible ( bool enable )    { _ipAddressVisible = enable; }
+
+    /**************************************************************************/
+    /*!
+     @brief  Refresh all icons based on current settings
+     */
+    /**************************************************************************/
     void refreshIcons  ( void );
 };
+
+#define RSSITEXT_STARTX      14 ///< RSSI Text X Position
+#define RSSITEXT_STARTY      0  ///< RSSI Text Y Position
+#define RSSIICON_STARTX      0  ///< RSSI Icon X Position
+#define RSSIICON_STARTY      4  ///< RSSI Icon Y Position
+#define RSSIICON_STARTHEIGHT 3  ///< RSSI Icon Height
+#define RSSIICON_BARWIDTH    2  ///< RSSI Icon Width
 
 #endif /* _Adafruit_FeatherOLED_WiFi_H_ */

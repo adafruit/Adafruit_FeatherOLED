@@ -42,13 +42,6 @@
 /******************************************************************************/
 void Adafruit_FeatherOLED::renderBattery ( void )
 {
-  #define BATTTEXT_STARTX     77
-  #define BATTTEXT_STARTY     0
-  #define BATTICON_STARTX     110
-  #define BATTICON_STARTY     0
-  #define BATTICON_WIDTH      18
-  #define BATTICON_BARWIDTH3  ((BATTICON_WIDTH - 6) / 3)
-
   if (_batteryVisible)
   {
     // Render the voltage in text
@@ -166,6 +159,7 @@ void Adafruit_FeatherOLED::init ( void )
 /*!
     @brief  Clears the message area (the middle 128x16 pixels) and sets the
             cursor to 0, 8
+    @param  update Automatically update the display after clearing
 */
 /******************************************************************************/
 void Adafruit_FeatherOLED::clearMsgArea ( bool update )
