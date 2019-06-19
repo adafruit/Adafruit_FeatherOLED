@@ -166,6 +166,7 @@ void Adafruit_FeatherOLED::init ( void )
 /*!
     @brief  Clears the message area (the middle 128x16 pixels) and sets the
             cursor to 0, 8
+    @param  update Automatically update the display after clearing
 */
 /******************************************************************************/
 void Adafruit_FeatherOLED::clearMsgArea ( bool update )
