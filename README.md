@@ -1,5 +1,4 @@
-Adafruit_FeatherOLED [![Build Status](https://travis-ci.com/adafruit/Adafruit_FeatherOLED.svg?branch=master)](https://travis-ci.com/adafruit/Adafruit_FeatherOLED)
-================
+# Adafruit_FeatherOLED Library[![Build Status](https://github.com/adafruit/Adafruit_FeatherOLED/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_FeatherOLED/actions)
 
 This is the helper class to work with 128x32 OLED displays on Adafruit Feathers
 
