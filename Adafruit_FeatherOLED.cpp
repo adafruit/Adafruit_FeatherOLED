@@ -29,8 +29,8 @@
     (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
     LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
     ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+   THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 /**************************************************************************/
 #include "Adafruit_FeatherOLED.h"
@@ -40,100 +40,62 @@
     @brief  Renders the battery icon
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::renderBattery ( void )
-{
-  if (_batteryVisible)
-  {
+void Adafruit_FeatherOLED::renderBattery(void) {
+  if (_batteryVisible) {
     // Render the voltage in text
     setCursor(BATTTEXT_STARTX, BATTTEXT_STARTY);
     print(_battery, 2);
     println("V");
 
     // Render the battery icon if requested
-    if (_batteryIcon)
-    {
+    if (_batteryIcon) {
       // Draw the base of the battery
-      drawLine( BATTICON_STARTX + 1,
-                BATTICON_STARTY,
-                BATTICON_STARTX + BATTICON_WIDTH - 4,
-                BATTICON_STARTY,
+      drawLine(BATTICON_STARTX + 1, BATTICON_STARTY,
+               BATTICON_STARTX + BATTICON_WIDTH - 4, BATTICON_STARTY, WHITE);
+      drawLine(BATTICON_STARTX, BATTICON_STARTY + 1, BATTICON_STARTX,
+               BATTICON_STARTY + 5, WHITE);
+      drawLine(BATTICON_STARTX + 1, BATTICON_STARTY + 6,
+               BATTICON_STARTX + BATTICON_WIDTH - 4, BATTICON_STARTY + 6,
+               WHITE);
+      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 3, BATTICON_STARTY + 1,
                 WHITE);
-      drawLine( BATTICON_STARTX,
-                BATTICON_STARTY + 1,
-                BATTICON_STARTX,
-                BATTICON_STARTY + 5,
+      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 2, BATTICON_STARTY + 1,
                 WHITE);
-      drawLine( BATTICON_STARTX + 1,
-                BATTICON_STARTY + 6,
-                BATTICON_STARTX + BATTICON_WIDTH - 4,
-                BATTICON_STARTY + 6,
+      drawLine(BATTICON_STARTX + BATTICON_WIDTH - 1, BATTICON_STARTY + 2,
+               BATTICON_STARTX + BATTICON_WIDTH - 1, BATTICON_STARTY + 4,
+               WHITE);
+      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 2, BATTICON_STARTY + 5,
                 WHITE);
-      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 3,
-                BATTICON_STARTY + 1,
+      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 3, BATTICON_STARTY + 5,
                 WHITE);
-      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 2,
-                BATTICON_STARTY + 1,
-                WHITE);
-      drawLine( BATTICON_STARTX + BATTICON_WIDTH - 1,
-                BATTICON_STARTY + 2,
-                BATTICON_STARTX + BATTICON_WIDTH - 1,
-                BATTICON_STARTY + 4,
-                WHITE);
-      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 2,
-                BATTICON_STARTY + 5,
-                WHITE);
-      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 3,
-                BATTICON_STARTY + 5,
-                WHITE);
-      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 3,
-                BATTICON_STARTY + 6,
+      drawPixel(BATTICON_STARTX + BATTICON_WIDTH - 3, BATTICON_STARTY + 6,
                 WHITE);
 
       // Draw the appropriate number of bars
-      if (_battery > 4.26F)
-      {
+      if (_battery > 4.26F) {
         // USB (Solid Rectangle)
-        fillRect(BATTICON_STARTX + 2,     // X
-                 BATTICON_STARTY + 2,     // Y
-                 BATTICON_BARWIDTH3 * 3,  // W
-                 3,                       // H
+        fillRect(BATTICON_STARTX + 2,    // X
+                 BATTICON_STARTY + 2,    // Y
+                 BATTICON_BARWIDTH3 * 3, // W
+                 3,                      // H
                  WHITE);
-      }
-      else if ((_battery <= 4.26F) && (_battery >= 4.1F))
-      {
+      } else if ((_battery <= 4.26F) && (_battery >= 4.1F)) {
         // Three bars
-        for (uint8_t i = 0; i < 3; i++)
-        {
+        for (uint8_t i = 0; i < 3; i++) {
           fillRect(BATTICON_STARTX + 2 + (i * BATTICON_BARWIDTH3),
-                   BATTICON_STARTY + 2,
-                   BATTICON_BARWIDTH3 - 1,
-                   3,
-                   WHITE);
+                   BATTICON_STARTY + 2, BATTICON_BARWIDTH3 - 1, 3, WHITE);
         }
-      }
-      else if ((_battery < 4.1F) && (_battery >= 3.8F))
-      {
+      } else if ((_battery < 4.1F) && (_battery >= 3.8F)) {
         // Two bars
-        for (uint8_t i = 0; i < 2; i++)
-        {
+        for (uint8_t i = 0; i < 2; i++) {
           fillRect(BATTICON_STARTX + 2 + (i * BATTICON_BARWIDTH3),
-                   BATTICON_STARTY + 2,
-                   BATTICON_BARWIDTH3 - 1,
-                   3,
-                   WHITE);
+                   BATTICON_STARTY + 2, BATTICON_BARWIDTH3 - 1, 3, WHITE);
         }
-      }
-      else if ((_battery < 3.8F) && (_battery >= 3.4F))
-      {
+      } else if ((_battery < 3.8F) && (_battery >= 3.4F)) {
         // One bar
-        fillRect(BATTICON_STARTX + 2,
-                 BATTICON_STARTY + 2,
-                 BATTICON_BARWIDTH3 - 1,
-                 3,
-                 WHITE);
-      }
-      else
-      {
+        fillRect(BATTICON_STARTX + 2, BATTICON_STARTY + 2,
+                 BATTICON_BARWIDTH3 - 1, 3, WHITE);
+      } else {
         // No bars
       }
     }
@@ -145,8 +107,7 @@ void Adafruit_FeatherOLED::renderBattery ( void )
     @brief  Initialises the display (always call this first!)
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::init ( void )
-{
+void Adafruit_FeatherOLED::init(void) {
   // Generate the high voltage from the 3.3v line internally and
   // initialize with the I2C addr 0x3C (for the 128x32)
   begin(SSD1306_SWITCHCAPVCC, 0x3C);
@@ -162,8 +123,7 @@ void Adafruit_FeatherOLED::init ( void )
     @param  update Automatically update the display after clearing
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::clearMsgArea ( bool update )
-{
+void Adafruit_FeatherOLED::clearMsgArea(bool update) {
   fillRect(0, 8, 128, 16, BLACK);
   setCursor(0, 8);
   if (update) {
