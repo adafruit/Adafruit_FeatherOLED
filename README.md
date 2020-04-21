@@ -1,4 +1,4 @@
-# Adafruit_FeatherOLED Library[![Build Status](https://github.com/adafruit/Adafruit_FeatherOLED/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_FeatherOLED/actions)[![Documentation](https://github.com/adafruit/ci-arduino/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_FeatherOLED/html/index.html)
+# Adafruit_FeatherOLED Library[![Build Status](https://github.com/adafruit/Adafruit_FeatherOLED/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_FeatherOLED/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_FeatherOLED/html/index.html)
 
 This is the helper class to work with 128x32 OLED displays on Adafruit Feathers
 
