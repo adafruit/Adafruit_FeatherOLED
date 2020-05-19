@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['rssiicon_5fbarwidth',['RSSIICON_BARWIDTH',['../_adafruit___feather_o_l_e_d___wi_fi_8h.html#adfcda3eff2f542ede3132d4049e7e719',1,'Adafruit_FeatherOLED_WiFi.h']]],
-  ['rssiicon_5fstartheight',['RSSIICON_STARTHEIGHT',['../_adafruit___feather_o_l_e_d___wi_fi_8h.html#aa3fc13457adcdc19fa386dff240c0056',1,'Adafruit_FeatherOLED_WiFi.h']]],
-  ['rssiicon_5fstartx',['RSSIICON_STARTX',['../_adafruit___feather_o_l_e_d___wi_fi_8h.html#a94f841d7a16dbe180d7182b1eff04b07',1,'Adafruit_FeatherOLED_WiFi.h']]],
-  ['rssiicon_5fstarty',['RSSIICON_STARTY',['../_adafruit___feather_o_l_e_d___wi_fi_8h.html#ac695fe4725b624f6eb4ec81f12c8ff57',1,'Adafruit_FeatherOLED_WiFi.h']]],
-  ['rssitext_5fstartx',['RSSITEXT_STARTX',['../_adafruit___feather_o_l_e_d___wi_fi_8h.html#ac942c3c6ac137f5925631f958a28f71f',1,'Adafruit_FeatherOLED_WiFi.h']]],
-  ['rssitext_5fstarty',['RSSITEXT_STARTY',['../_adafruit___feather_o_l_e_d___wi_fi_8h.html#a7cbfdaefb3bf4a103ca9f40805ad5161',1,'Adafruit_FeatherOLED_WiFi.h']]]
+  ['batticon_5fbarwidth3',['BATTICON_BARWIDTH3',['../_adafruit___feather_o_l_e_d_8h.html#ac25241cc5874439e1380e65fd6d03cff',1,'Adafruit_FeatherOLED.h']]],
+  ['batticon_5fstartx',['BATTICON_STARTX',['../_adafruit___feather_o_l_e_d_8h.html#ac740eecc0a945274629dc169a6e1b4af',1,'Adafruit_FeatherOLED.h']]],
+  ['batticon_5fstarty',['BATTICON_STARTY',['../_adafruit___feather_o_l_e_d_8h.html#a039de2001a25bad637e6ab03863fc7f9',1,'Adafruit_FeatherOLED.h']]],
+  ['batticon_5fwidth',['BATTICON_WIDTH',['../_adafruit___feather_o_l_e_d_8h.html#a1e8953abc0ec94cfa766551df8733d15',1,'Adafruit_FeatherOLED.h']]],
+  ['batttext_5fstartx',['BATTTEXT_STARTX',['../_adafruit___feather_o_l_e_d_8h.html#a86a86761ffe5d04f608fef92cae022a7',1,'Adafruit_FeatherOLED.h']]],
+  ['batttext_5fstarty',['BATTTEXT_STARTY',['../_adafruit___feather_o_l_e_d_8h.html#ab0a65fa4d68a5af1c0593253fac6e1bb',1,'Adafruit_FeatherOLED.h']]]
 ];
