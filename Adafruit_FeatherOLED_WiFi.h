@@ -5,7 +5,12 @@
 */
 /**************************************************************************/
 
+/// @cond SAMD51
 #ifndef _Adafruit_FeatherOLED_WiFi_H_
+/// @endcond
+/*!
+ @brief Honestly I have no idea
+ */
 #define _Adafruit_FeatherOLED_WiFi_H_
 
 #include <Adafruit_FeatherOLED.h>
@@ -137,4 +142,6 @@ public:
 #define RSSIICON_STARTHEIGHT 3 ///< RSSI Icon Height
 #define RSSIICON_BARWIDTH 2    ///< RSSI Icon Width
 
+/// @cond SAMD51
 #endif /* _Adafruit_FeatherOLED_WiFi_H_ */
+/// @endcond

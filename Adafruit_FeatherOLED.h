@@ -5,7 +5,12 @@
 */
 /**************************************************************************/
 
+/// @cond SAMD51
 #ifndef _Adafruit_FeatherOLED_H_
+/// @endcond
+/*!
+ * @brief this does something
+ */
 #define _Adafruit_FeatherOLED_H_
 
 #include <Adafruit_GFX.h>
@@ -87,4 +92,6 @@ public:
 #define BATTICON_BARWIDTH3                                                     \
   ((BATTICON_WIDTH - 6) / 3) ///< Battery Icon Bar Width
 
+/// @cond SAMD51
 #endif /* _Adafruit_FeatherOLED_H_ */
+/// @endcond

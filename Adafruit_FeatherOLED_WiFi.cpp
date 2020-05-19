@@ -1,16 +1,16 @@
 /**************************************************************************/
 /*!
-    @file     Adafruit_FeatherOLED_WiFi.cpp
-    @author   ktown
-*/
+ * @file     Adafruit_FeatherOLED_WiFi.cpp
+ * @author   ktown
+ */
 /**************************************************************************/
 #include "Adafruit_FeatherOLED_WiFi.h"
 
-/******************************************************************************/
+/**************************************************************************/
 /*!
-    @brief  Converts RSSI from dBm to quality percentage
-*/
-/******************************************************************************/
+ * @brief  Converts RSSI from dBm to quality percentage
+ */
+/**************************************************************************/
 int Adafruit_FeatherOLED_WiFi::rssiToQualityPercentage(void) {
   int quality;
   if (_rssi <= -100) {
