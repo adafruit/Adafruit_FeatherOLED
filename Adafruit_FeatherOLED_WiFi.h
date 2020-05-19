@@ -9,7 +9,7 @@
 #ifndef _Adafruit_FeatherOLED_WiFi_H_
 /// @endcond
 /*!
- @brief Honestly I have no idea
+ @brief Adafruit FeatherOLED WiFi H
  */
 #define _Adafruit_FeatherOLED_WiFi_H_
 
