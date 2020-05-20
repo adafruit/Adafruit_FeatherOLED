@@ -5,7 +5,7 @@
 */
 /**************************************************************************/
 
-/// @cond SAMD51
+/// @cond DISABLE 
 #ifndef _Adafruit_FeatherOLED_WiFi_H_
 /// @endcond
 /*!
@@ -142,6 +142,6 @@ public:
 #define RSSIICON_STARTHEIGHT 3 ///< RSSI Icon Height
 #define RSSIICON_BARWIDTH 2    ///< RSSI Icon Width
 
-/// @cond SAMD51
+/// @cond DISABLE 
 #endif /* _Adafruit_FeatherOLED_WiFi_H_ */
 /// @endcond
