@@ -5,7 +5,7 @@
 */
 /**************************************************************************/
 
-/// @cond DISABLE 
+/// @cond DISABLE
 #ifndef _Adafruit_FeatherOLED_H_
 /// @endcond
 /*!
@@ -92,6 +92,6 @@ public:
 #define BATTICON_BARWIDTH3                                                     \
   ((BATTICON_WIDTH - 6) / 3) ///< Battery Icon Bar Width
 
-/// @cond DISABLE 
+/// @cond DISABLE
 #endif /* _Adafruit_FeatherOLED_H_ */
 /// @endcond
