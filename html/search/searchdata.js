@@ -7,7 +7,7 @@ var indexSectionsWithContent =
   4: "_",
   5: "b",
   6: "f",
-  7: "_br",
+  7: "br",
   8: "a"
 };
 
