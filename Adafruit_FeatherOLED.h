@@ -1,13 +1,8 @@
-/**************************************************************************/
 /*!
-    @file     Adafruit_FeatherOLED.h
-    @author   ktown
-*/
-/**************************************************************************/
+ * @file     Adafruit_FeatherOLED.h
+ */
 
-/// @cond DISABLE
 #ifndef _Adafruit_FeatherOLED_H_
-/// @endcond
 /*!
  * @brief Adafruit FeatherOLED H
  */
@@ -92,6 +87,4 @@ public:
 #define BATTICON_BARWIDTH3                                                     \
   ((BATTICON_WIDTH - 6) / 3) ///< Battery Icon Bar Width
 
-/// @cond DISABLE
 #endif /* _Adafruit_FeatherOLED_H_ */
-/// @endcond

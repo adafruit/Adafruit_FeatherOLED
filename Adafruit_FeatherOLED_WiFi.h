@@ -1,13 +1,8 @@
-/**************************************************************************/
 /*!
-    @file     Adafruit_FeatherOLED_WiFi.h
-    @author   ktown
-*/
-/**************************************************************************/
+ * @file     Adafruit_FeatherOLED_WiFi.h
+ */
 
-/// @cond DISABLE
 #ifndef _Adafruit_FeatherOLED_WiFi_H_
-/// @endcond
 /*!
  @brief Adafruit FeatherOLED WiFi H
  */
@@ -142,6 +137,4 @@ public:
 #define RSSIICON_STARTHEIGHT 3 ///< RSSI Icon Height
 #define RSSIICON_BARWIDTH 2    ///< RSSI Icon Width
 
-/// @cond DISABLE
 #endif /* _Adafruit_FeatherOLED_WiFi_H_ */
-/// @endcond
