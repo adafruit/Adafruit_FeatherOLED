@@ -1,11 +1,11 @@
-/**************************************************************************/
 /*!
-    @file     Adafruit_FeatherOLED.h
-    @author   ktown
-*/
-/**************************************************************************/
+ * @file     Adafruit_FeatherOLED.h
+ */
 
 #ifndef _Adafruit_FeatherOLED_H_
+/*!
+ * @brief Adafruit FeatherOLED H
+ */
 #define _Adafruit_FeatherOLED_H_
 
 #include <Adafruit_GFX.h>

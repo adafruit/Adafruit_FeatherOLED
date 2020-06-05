@@ -1,11 +1,11 @@
-/**************************************************************************/
 /*!
-    @file     Adafruit_FeatherOLED_WiFi.h
-    @author   ktown
-*/
-/**************************************************************************/
+ * @file     Adafruit_FeatherOLED_WiFi.h
+ */
 
 #ifndef _Adafruit_FeatherOLED_WiFi_H_
+/*!
+ @brief Adafruit FeatherOLED WiFi H
+ */
 #define _Adafruit_FeatherOLED_WiFi_H_
 
 #include <Adafruit_FeatherOLED.h>
