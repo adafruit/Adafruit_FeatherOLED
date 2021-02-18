@@ -3,15 +3,14 @@
  *
  * @author   ktown
  *
- * @mainpage Adafruit FeatherOLED_SH110X
  *
- * @section intro_sec Introduction
+ * @section intro_sec_SH110X Introduction
  *
  * Helper class to work with 128x64 OLED displays on Adafruit Feathers
  * Tested and works great with the Adafruit OLED FeatherWing - 128x64:
  * http://www.adafruit.com/products/4650
  *
- * @section LICENSE
+ * @section LICENSE_SH110X
  *
  * Software License Agreement (BSD License)
  *
