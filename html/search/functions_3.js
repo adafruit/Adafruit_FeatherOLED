@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['refreshicons',['refreshIcons',['../class_adafruit___feather_o_l_e_d___wi_fi.html#a7817a52b3c689f9268be42cfece0e18f',1,'Adafruit_FeatherOLED_WiFi']]],
-  ['renderbattery',['renderBattery',['../class_adafruit___feather_o_l_e_d.html#af5a74530be9e445ba1bce7cb5f6da96c',1,'Adafruit_FeatherOLED']]],
-  ['renderconnected',['renderConnected',['../class_adafruit___feather_o_l_e_d___wi_fi.html#ac66cb71457798d454ae134329c8edc4d',1,'Adafruit_FeatherOLED_WiFi']]],
-  ['renderipaddress',['renderIPAddress',['../class_adafruit___feather_o_l_e_d___wi_fi.html#aa83460b789d06f901c183f94f9e91ab2',1,'Adafruit_FeatherOLED_WiFi']]],
-  ['renderrssi',['renderRSSI',['../class_adafruit___feather_o_l_e_d___wi_fi.html#ab11e54903b85ea2c89bd5f439d003d43',1,'Adafruit_FeatherOLED_WiFi']]],
-  ['renderrssiicon',['renderRSSIIcon',['../class_adafruit___feather_o_l_e_d___wi_fi.html#a108005d60641fe063f67c4b4b044c3fb',1,'Adafruit_FeatherOLED_WiFi']]]
+  ['refreshicons',['refreshIcons',['../class_adafruit___feather_o_l_e_d___s_h110_x___wi_fi.html#a5510403915e499c12d3b533619b20d32',1,'Adafruit_FeatherOLED_SH110X_WiFi::refreshIcons()'],['../class_adafruit___feather_o_l_e_d___wi_fi.html#a7817a52b3c689f9268be42cfece0e18f',1,'Adafruit_FeatherOLED_WiFi::refreshIcons()']]],
+  ['renderbattery',['renderBattery',['../class_adafruit___feather_o_l_e_d.html#af5a74530be9e445ba1bce7cb5f6da96c',1,'Adafruit_FeatherOLED::renderBattery()'],['../class_adafruit___feather_o_l_e_d___s_h110_x.html#ac18265b15f981a5013befeb79ec28973',1,'Adafruit_FeatherOLED_SH110X::renderBattery()']]],
+  ['renderconnected',['renderConnected',['../class_adafruit___feather_o_l_e_d___s_h110_x___wi_fi.html#ab8ea730bfc95ea9ece5656f5ff923dac',1,'Adafruit_FeatherOLED_SH110X_WiFi::renderConnected()'],['../class_adafruit___feather_o_l_e_d___wi_fi.html#ac66cb71457798d454ae134329c8edc4d',1,'Adafruit_FeatherOLED_WiFi::renderConnected()']]],
+  ['renderipaddress',['renderIPAddress',['../class_adafruit___feather_o_l_e_d___s_h110_x___wi_fi.html#a283c54f9ef31dffb4adcf6274051336d',1,'Adafruit_FeatherOLED_SH110X_WiFi::renderIPAddress()'],['../class_adafruit___feather_o_l_e_d___wi_fi.html#aa83460b789d06f901c183f94f9e91ab2',1,'Adafruit_FeatherOLED_WiFi::renderIPAddress()']]],
+  ['renderrssi',['renderRSSI',['../class_adafruit___feather_o_l_e_d___s_h110_x___wi_fi.html#ad7e84263fa6220135a6b984ab29cec73',1,'Adafruit_FeatherOLED_SH110X_WiFi::renderRSSI()'],['../class_adafruit___feather_o_l_e_d___wi_fi.html#ab11e54903b85ea2c89bd5f439d003d43',1,'Adafruit_FeatherOLED_WiFi::renderRSSI()']]],
+  ['renderrssiicon',['renderRSSIIcon',['../class_adafruit___feather_o_l_e_d___s_h110_x___wi_fi.html#a54ed508f02e5ece9c65bf8ee2feeede3',1,'Adafruit_FeatherOLED_SH110X_WiFi::renderRSSIIcon()'],['../class_adafruit___feather_o_l_e_d___wi_fi.html#a108005d60641fe063f67c4b4b044c3fb',1,'Adafruit_FeatherOLED_WiFi::renderRSSIIcon()']]]
 ];

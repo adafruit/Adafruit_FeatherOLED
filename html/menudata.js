@@ -14,7 +14,12 @@ var menudata={children:[
 {text:"i",url:"functions.html#index_i"},
 {text:"r",url:"functions.html#index_r"},
 {text:"s",url:"functions.html#index_s"}]},
-{text:"Functions",url:"functions_func.html"},
+{text:"Functions",url:"functions_func.html",children:[
+{text:"a",url:"functions_func.html#index_a"},
+{text:"c",url:"functions_func.html#index_c"},
+{text:"i",url:"functions_func.html#index_i"},
+{text:"r",url:"functions_func.html#index_r"},
+{text:"s",url:"functions_func.html#index_s"}]},
 {text:"Variables",url:"functions_vars.html"},
 {text:"Enumerations",url:"functions_enum.html"},
 {text:"Enumerator",url:"functions_eval.html"}]}]},
