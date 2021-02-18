@@ -132,7 +132,7 @@ void loop()
     measuredvbat *= 2; // we divided by 2, so multiply back
     measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
     measuredvbat *= 1.1;  // Multiply by 1.1V, the adC reference voltage
-    measuredvbat /= 4095; // convert to voltage 4095 is max value
+    measuredvbat /= 4098; // convert to voltage 4098 is max value
 
     return measuredvbat;
 
