@@ -1,4 +1,4 @@
-// Adafruit OLED FeatherWing Battery Example
+// Adafruit OLED 128x64 FeatherWing Battery Example
 //
 // Adafruit invests time and resources providing this open source code.
 // Please support Adafruit and open source hardware by purchasing
@@ -12,10 +12,10 @@
 
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-#include <Adafruit_FeatherOLED.h>
+#include <Adafruit_SH110X.h>
+#include <Adafruit_FeatherOLED_SH110X.h>
 
-Adafruit_FeatherOLED oled = Adafruit_FeatherOLED();
+Adafruit_FeatherOLED_SH110X oled = Adafruit_FeatherOLED_SH110X();
 
 // integer variable to hold current counter value
 int count = 0;
@@ -138,6 +138,8 @@ void loop()
     return measuredvbat;
 
   }
+
+
 #elif defined(ARDUINO_STM32_FEATHER)
 
   // wiced feather
