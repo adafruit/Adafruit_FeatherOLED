@@ -89,14 +89,14 @@ void Adafruit_FeatherOLED_SH110X::renderBattery(void) {
         // Three bars
         for (uint8_t i = 0; i < 3; i++) {
           fillRect(BATTICON_STARTX + 2 + (i * BATTICON_BARWIDTH3),
-                   BATTICON_STARTY + 2, BATTICON_BARWIDTH3 - 1, 3, 
+                   BATTICON_STARTY + 2, BATTICON_BARWIDTH3 - 1, 3,
                    SH110X_WHITE);
         }
       } else if ((_battery < 4.1F) && (_battery >= 3.8F)) {
         // Two bars
         for (uint8_t i = 0; i < 2; i++) {
           fillRect(BATTICON_STARTX + 2 + (i * BATTICON_BARWIDTH3),
-                   BATTICON_STARTY + 2, BATTICON_BARWIDTH3 - 1, 3, 
+                   BATTICON_STARTY + 2, BATTICON_BARWIDTH3 - 1, 3,
                    SH110X_WHITE);
         }
       } else if ((_battery < 3.8F) && (_battery >= 3.4F)) {
