@@ -18,7 +18,7 @@
  the battery
  */
 /**************************************************************************/
-class Adafruit_FeatherOLED_SH110X : public Adafruit_SH110X {
+class Adafruit_FeatherOLED_SH110X : public Adafruit_SH1107 {
 protected:
   float _battery; /*!<  Battery Value */              //
   bool _batteryIcon; /*!<  Display Battery Icon */    //
@@ -44,7 +44,7 @@ public:
    */
   /**************************************************************************/
   Adafruit_FeatherOLED_SH110X(TwoWire *wire = &Wire, int reset = -1)
-      : Adafruit_SH110X(64, 128, wire, reset) {
+      : Adafruit_SH1107(64, 128, wire, reset) {
     _battery = 0.0F;
     _batteryIcon = true;
     _batteryVisible = true;
