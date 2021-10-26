@@ -120,6 +120,17 @@ void Adafruit_FeatherOLED_SH110X::init(void) {
   setTextSize(1);
   setTextColor(SH110X_WHITE);
   clearDisplay();
+
+
+#if defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2)
+  lc = new Adafruit_LC709203F();
+  if (!lc || !lc->begin()) {
+    lc = NULL;
+    return;
+  }
+  lc->setPackSize(LC709203F_APA_500MAH);
+  lc->setAlarmVoltage(3.8);
+#endif
 }
 
 /*!
@@ -133,4 +144,44 @@ void Adafruit_FeatherOLED_SH110X::clearMsgArea(bool update) {
   if (update) {
     display();
   }
+}
+
+
+
+float Adafruit_FeatherOLED_SH110X::getBatteryVoltage() {
+#if defined(ARDUINO_FEATHER52)
+  int raw;
+  
+  // Set the analog reference to 3.0V (default = 3.6V)
+  analogReference(AR_INTERNAL_3_0);
+  
+  // Set the resolution to 12-bit (0..4095)
+  analogReadResolution(12); // Can be 8, 10, 12 or 14
+  
+  // Let the ADC settle
+  delay(1);
+  
+  // Get the raw 12-bit, 0..3000mV ADC value
+  raw = analogRead(VBATPIN);
+  
+  // Set the ADC back to the default settings
+  analogReference(AR_DEFAULT);
+  analogReadResolution(10);
+  
+  // Convert the raw value to compensated mv, taking the resistor-
+  // divider into account (providing the actual LIPO voltage)
+  // ADC range is 0..3000mV and resolution is 12-bit (0..4095),
+  return ((float)raw * REAL_VBAT_MV_PER_LSB) / 1000.0;
+#elif defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2)
+  if (! lc) return 0;
+  return lc->cellVoltage();
+#else
+  float measuredvbat = analogRead(VBATPIN);
+
+  measuredvbat *= 2;    // we divided by 2, so multiply back
+  measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
+  measuredvbat /= 1024; // convert to voltage
+
+  return measuredvbat * VBAT_MULTIPLIER;
+#endif
 }

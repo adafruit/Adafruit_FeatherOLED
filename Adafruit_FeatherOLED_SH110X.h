@@ -11,6 +11,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 #include <Wire.h>
+#include <Adafruit_FeatherOLED.h>
 
 /**************************************************************************/
 /*!
@@ -23,6 +24,7 @@ protected:
   float _battery; /*!<  Battery Value */              //
   bool _batteryIcon; /*!<  Display Battery Icon */    //
   bool _batteryVisible; /*!<  Battery Info Visible */ //
+  Adafruit_LC709203F *lc = NULL;
 
 public:
   /**************************************************************************/
@@ -73,6 +75,8 @@ public:
    */
   /**************************************************************************/
   void setBatteryIcon(bool enable) { _batteryIcon = enable; }
+
+  float getBatteryVoltage();
 
   void init(void);
   void clearMsgArea(bool update = true);

@@ -12,6 +12,61 @@
 #include <Adafruit_SSD1306.h>
 #include <Wire.h>
 
+
+
+#if defined(ARDUINO_ARCH_SAMD)
+  // m0 and m4 feathers
+  #define VBATPIN A7
+  #define VBAT_MULTIPLIER  2.0 * 3.3 / 1024.0
+
+#elif defined(__AVR_ATmega32U4__)
+  // 32u4 feather
+  #define VBATPIN A9
+  #define VBAT_MULTIPLIER  2.0 * 3.3 / 1024.0
+
+#elif defined(ESP8266)
+  // esp8266 feather
+  #define VBATPIN A0
+  /*
+   * The ESP8266 Feather Huzzah does not have an internal voltage divider, so you must build one.
+   * However, the voltage on the Analog Input must be between 0-1.0V or you could risk damaging
+   * the chip. So please keep this in mind when selecting resistor values. For the default values
+   * you could use a 100K resistor between ADC and USB (R1) and a 10K Resistor between ADC and Ground (R2) 
+   * to use these values.
+   */
+   #define VBAT_MULTIPLIER  (100000 / 10000) / 1024.0
+#elif defined(ESP32) && !defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2)
+  // esp32 feather
+  #define VBATPIN A13
+  // Multiply by 1.1V, the adC reference voltage,  convert to voltage 4098 is max value
+  #define VBAT_MULTIPLIER  2.0 * 3.3 * 1.1 / 4098.0
+
+#elif defined(ARDUINO_STM32_FEATHER)
+  // wiced feather
+  #define VBATPIN PA1
+  #define VBAT_MULTIPLIER  2.0 * 0.80566F / 1000.0
+
+#elif defined(ARDUINO_FEATHER52)
+  #define VBATPIN PIN_VBAT
+  #define VBAT_MV_PER_LSB   (0.73242188F)   // 3.0V ADC range and 12-bit ADC resolution = 3000mV/4096
+  
+  #ifdef NRF52840_XXAA    // if this is for nrf52840
+    #define VBAT_DIVIDER      (0.5F)          // 150K + 150K voltage divider on VBAT
+    #define VBAT_DIVIDER_COMP (2.0F)          // Compensation factor for the VBAT divider
+  #else
+    #define VBAT_DIVIDER      (0.71275837F)   // 2M + 0.806M voltage divider on VBAT = (2M / (0.806M + 2M))
+    #define VBAT_DIVIDER_COMP (1.403F)        // Compensation factor for the VBAT divider
+  #endif
+
+  #define REAL_VBAT_MV_PER_LSB (VBAT_DIVIDER_COMP * VBAT_MV_PER_LSB)
+
+#elif defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2)
+  #include "Adafruit_LC709203F.h"
+
+#else
+  #warning "Board VBAT pin is not known!"
+#endif
+
 /**************************************************************************/
 /*!
  @brief  Class that extends the SSD1306 to allow easy usage such as displaying
@@ -23,6 +78,7 @@ protected:
   float _battery; /*!<  Battery Value */              //
   bool _batteryIcon; /*!<  Display Battery Icon */    //
   bool _batteryVisible; /*!<  Battery Info Visible */ //
+  Adafruit_LC709203F *lc = NULL;
 
 public:
   /**************************************************************************/
@@ -74,6 +130,8 @@ public:
   /**************************************************************************/
   void setBatteryIcon(bool enable) { _batteryIcon = enable; }
 
+  float getBatteryVoltage();
+
   void init(void);
   void clearMsgArea(bool update = true);
   void renderBattery(void);
@@ -86,5 +144,8 @@ public:
 #define BATTICON_WIDTH 18   ///< Battery Icon Width
 #define BATTICON_BARWIDTH3                                                     \
   ((BATTICON_WIDTH - 6) / 3) ///< Battery Icon Bar Width
+
+
+
 
 #endif /* _Adafruit_FeatherOLED_H_ */
