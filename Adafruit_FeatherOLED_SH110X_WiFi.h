@@ -130,11 +130,11 @@ public:
   void refreshIcons(void);
 };
 
-#define RSSITEXT_STARTX 14     ///< RSSI Text X Position
-#define RSSITEXT_STARTY 0      ///< RSSI Text Y Position
-#define RSSIICON_STARTX 0      ///< RSSI Icon X Position
-#define RSSIICON_STARTY 4      ///< RSSI Icon Y Position
+#define RSSITEXT_STARTX 14 ///< RSSI Text X Position
+#define RSSITEXT_STARTY 0 ///< RSSI Text Y Position
+#define RSSIICON_STARTX 0 ///< RSSI Icon X Position
+#define RSSIICON_STARTY 4 ///< RSSI Icon Y Position
 #define RSSIICON_STARTHEIGHT 3 ///< RSSI Icon Height
-#define RSSIICON_BARWIDTH 2    ///< RSSI Icon Width
+#define RSSIICON_BARWIDTH 2 ///< RSSI Icon Width
 
 #endif /* _Adafruit_FeatherOLED_SH110X_WiFi_H_ */
