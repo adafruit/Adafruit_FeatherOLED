@@ -24,7 +24,9 @@ protected:
   float _battery; /*!<  Battery Value */              //
   bool _batteryIcon; /*!<  Display Battery Icon */    //
   bool _batteryVisible; /*!<  Battery Info Visible */ //
+#if defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2)
   Adafruit_LC709203F *lc = NULL;
+#endif
 
 public:
   /**************************************************************************/
