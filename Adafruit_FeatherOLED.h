@@ -13,9 +13,13 @@
 #include <Wire.h>
 
 
+#if defined(__SAMD51__)
+  // m4 feathers
+  #define VBATPIN A6
+  #define VBAT_MULTIPLIER  2.0 * 3.3 / 1024.0
 
-#if defined(ARDUINO_ARCH_SAMD)
-  // m0 and m4 feathers
+#elif defined(ARDUINO_ARCH_SAMD)
+  // m0 feathers
   #define VBATPIN A7
   #define VBAT_MULTIPLIER  2.0 * 3.3 / 1024.0
 
