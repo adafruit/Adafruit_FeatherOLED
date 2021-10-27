@@ -145,6 +145,12 @@ void Adafruit_FeatherOLED_SH110X::clearMsgArea(bool update) {
   }
 }
 
+/**************************************************************************/
+/*!
+  @brief   Query the Feather for the Lipoly battery voltage
+  @returns The battery voltage in volts
+*/
+/**************************************************************************/
 float Adafruit_FeatherOLED_SH110X::getBatteryVoltage() {
 #if defined(ARDUINO_FEATHER52)
   int raw;
