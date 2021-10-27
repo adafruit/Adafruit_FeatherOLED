@@ -94,4 +94,3 @@ public:
   ((BATTICON_WIDTH - 6) / 3) ///< Battery Icon Bar Width
 
 #endif /* _Adafruit_FeatherOLED_SH110X_H_ */
- 
