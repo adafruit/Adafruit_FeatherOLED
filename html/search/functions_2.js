@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init',['init',['../class_adafruit___feather_o_l_e_d.html#afa46656f490cb87f2dd4a70a41a74ba1',1,'Adafruit_FeatherOLED::init()'],['../class_adafruit___feather_o_l_e_d___s_h110_x.html#a1af36ffa94a2d068785478a2f0099f9a',1,'Adafruit_FeatherOLED_SH110X::init()']]]
+  ['getbatteryvoltage',['getBatteryVoltage',['../class_adafruit___feather_o_l_e_d.html#aaab9d8112c7122a5e6be25a6ecd74cad',1,'Adafruit_FeatherOLED::getBatteryVoltage()'],['../class_adafruit___feather_o_l_e_d___s_h110_x.html#a5bfe4d0d79fb67cb2813e168fc48a216',1,'Adafruit_FeatherOLED_SH110X::getBatteryVoltage()']]]
 ];
