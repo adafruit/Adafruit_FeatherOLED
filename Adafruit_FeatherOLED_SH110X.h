@@ -8,6 +8,7 @@
  */
 #define _Adafruit_FeatherOLED_SH110X_H_
 
+#include <Adafruit_FeatherOLED.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 #include <Wire.h>
@@ -23,6 +24,9 @@ protected:
   float _battery; /*!<  Battery Value */              //
   bool _batteryIcon; /*!<  Display Battery Icon */    //
   bool _batteryVisible; /*!<  Battery Info Visible */ //
+#if defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2)
+  Adafruit_LC709203F *lc = NULL;
+#endif
 
 public:
   /**************************************************************************/
@@ -73,6 +77,8 @@ public:
    */
   /**************************************************************************/
   void setBatteryIcon(bool enable) { _batteryIcon = enable; }
+
+  float getBatteryVoltage();
 
   void init(void);
   void clearMsgArea(bool update = true);
