@@ -177,12 +177,6 @@ float Adafruit_FeatherOLED::getBatteryVoltage() {
     return 0;
   return lc->cellVoltage();
 #else
-  float measuredvbat = analogRead(VBATPIN);
-
-  measuredvbat *= 2;    // we divided by 2, so multiply back
-  measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
-  measuredvbat /= 1024; // convert to voltage
-
-  return measuredvbat * VBAT_MULTIPLIER;
+  return analogRead(VBATPIN) * VBAT_MULTIPLIER;
 #endif
 }
