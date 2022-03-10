@@ -38,7 +38,10 @@
  * resistor between ADC and USB (R1) and a 10K Resistor between ADC and Ground
  * (R2) to use these values.
  */
-#define VBAT_MULTIPLIER (100000 / 10000) / 1024.0
+#define R1 100000
+#define R2 10000
+#define VBAT_MULTIPLIER ((R1+R2) / R2) / 1024.0
+
 #elif defined(ESP32) && !defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2)
 // esp32 feather
 #define VBATPIN A13
