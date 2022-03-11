@@ -35,12 +35,12 @@
  * must build one. However, the voltage on the Analog Input must be between
  * 0-1.0V or you could risk damaging the chip. So please keep this in mind when
  * selecting resistor values. For the default values you could use a 100K
- * resistor between ADC and USB (R1) and a 10K Resistor between ADC and Ground
- * (R2) to use these values.
+ * resistor between ADC and the BAT pin (RESISTOR_BAT) and a 10K Resistor between ADC and Ground
+ * (RESISTOR_GND) or change the values below for other combinations.
  */
-#define R1 100000
-#define R2 10000
-#define VBAT_MULTIPLIER ((R1+R2) / R2) / 1024.0
+#define RESISTOR_BAT 100000
+#define RESISTOR_GND 10000
+#define VBAT_MULTIPLIER ((RESISTOR_BAT + RESISTOR_GND) / RESISTOR_GND) / 1024.0
 
 #elif defined(ESP32) && !defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2)
 // esp32 feather
