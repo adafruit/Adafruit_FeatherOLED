@@ -35,8 +35,9 @@
  * must build one. However, the voltage on the Analog Input must be between
  * 0-1.0V or you could risk damaging the chip. So please keep this in mind when
  * selecting resistor values. For the default values you could use a 100K
- * resistor between ADC and the BAT pin (RESISTOR_BAT) and a 10K Resistor between ADC and Ground
- * (RESISTOR_GND) or change the values below for other combinations.
+ * resistor between ADC and the BAT pin (RESISTOR_BAT) and a 10K Resistor 
+ * between ADC and Ground (RESISTOR_GND) or change the values below for other 
+ * combinations.
  */
 #define RESISTOR_BAT 100000
 #define RESISTOR_GND 10000
